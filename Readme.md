@@ -1,19 +1,20 @@
-# Proyecto BackendJWT TypeScript + NodeJs
+# TypeScriptLoginBack
+Se realiza un Backend hecho con TypeScript + Node.js
 
-## Nombre del proyecto: BackendJWT
+## Nombre del proyecto: BackendEndJWT
 
-#####  Proyecto a modo de practica, en el cual puse a prueba mis capacidades con typeScript + Node.js, ademas de conectar con la base de datos de MongoDb y poder tener autentificacion de usuario con JWT.
+#####  Proyecto a modo de practica, en el cual puse a prueba mis capacidades con typeScript + NodeJs - Express, ademas de conectar con la base de datos de MongoDb y poder tener autentificacion de usuario con JWT.
 
 
 ## Instalación ⚙️ 
 
-###### Puedes instalar el proyecto desde npm:
+###### Este proyecto fue realizado con VITE y puedes instalar el proyecto desde npm:
 
 ###### npm install
 
 ###### Para ejecutarlo de forma local:
 
-###### npm run dev
+###### npm start
 
 ## Estructura del sitio :t-rex:
 
@@ -22,27 +23,28 @@
 ###### - DataBase
 ###### - Middleware
 ###### - Models
-###### - Routers
- - tsConfig
+###### - Routes
+###### - app.ts
+###### - index.ts
 
 
 ## App subida a Render
-###### https://typescriptloginback.onrender.com
 
 
 
 ## Herramientas Utilizadas🛠️
 
-##### - Back-end
-###### 1. - Nodejs
-###### 2. - Express
-###### 3. - Bcryptjs
-###### 4. - Dotenv
-###### 5. - JswonWebToken
-###### 6. - Mongoose
-###### 7. - Morgan
-###### 8. - TypeScript
-###### 9. - Nodemon
+##### - Backend
+###### 1. - Node.js
+###### 2. - TypeScript
+###### 3. - Express
+###### 4. - Bcryptjs
+###### 5. - Cors
+###### 6. - Dotenv
+###### 7. - JsonWebToken
+###### 8. - Mongoose
+###### 9. - Morgan
+
 
 ## Integrantes del Proyecto
 
