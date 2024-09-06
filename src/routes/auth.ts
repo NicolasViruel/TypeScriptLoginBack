@@ -1,10 +1,10 @@
 import { Router } from "express";
-import {singin, singup , profile} from "../controllers/auth.controllers"
+import {singin, signup , profile} from "../controllers/auth.controllers"
 import { requireAuth } from "../middleware/verifyToken";
 
 const router: Router = Router();
 
-router.post('/singup' , singup)
+router.post('/signup' , signup)
 router.post('/singin' , singin)
 router.get('/profile',requireAuth, profile)
 

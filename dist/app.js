@@ -15,7 +15,7 @@ app.set('port', 4000);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use((0, cors_1.default)({
-    origin: "http://127.0.0.1:5173",
+    origin: ["http://127.0.0.1:5173", "http://localhost:5173"],
     credentials: true
 }));
 app.use((0, morgan_1.default)('dev'));

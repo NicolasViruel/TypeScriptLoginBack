@@ -12,31 +12,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.profile = exports.singin = exports.singup = void 0;
+exports.profile = exports.singin = exports.signup = void 0;
 const User_1 = __importDefault(require("../models/User"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const singup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { username, email, password } = req.body;
-    if (!username)
-        return res.status(400).send({ msg: "The username is required" });
-    if (!email)
-        return res.status(400).send({ msg: "Email is required" });
-    if (!password)
-        return res.status(400).send({ msg: "The password is required" });
-    const user = new User_1.default({
-        username,
-        email,
-        password,
-    });
-    user.password = yield user.encryptPassword(user.password);
-    const savedUser = yield user.save();
-    // Creando el Token
-    const token = jsonwebtoken_1.default.sign({ _id: savedUser._id }, process.env.JWT_KEY || 'tokentest');
-    res.header('authorization', token).json(savedUser);
+const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { username, email, password } = req.body;
+        if (!username)
+            return res.status(400).json({ msg: "The username is required" });
+        if (!email)
+            return res.status(400).json({ msg: "Email is required" });
+        if (!password)
+            return res.status(400).json({ msg: "The password is required" });
+        const user = new User_1.default({ username, email, password });
+        user.password = yield user.encryptPassword(user.password);
+        const savedUser = yield user.save();
+        // Crear el token
+        const token = jsonwebtoken_1.default.sign({ _id: savedUser._id }, process.env.JWT_KEY || 'tokentest');
+        res.header('authorization', token).json(savedUser);
+    }
+    catch (error) {
+        res.status(500).json({ msg: "Internal Server Error", error });
+    }
 });
-exports.singup = singup;
+exports.signup = signup;
 const singin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield User_1.default.findOne({ email: req.body.email });
+    console.log(user);
     //compruebo el correo
     if (!user)
         return res.status(400).json('Email or Password is wrong');
